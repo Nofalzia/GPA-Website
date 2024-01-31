@@ -18,12 +18,40 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Table rows for user input -->
+                
             </tbody>
         </table>
         <button id="calculateButton">Calculate GPA</button>
         <p>Your GPA is: <span id="result">---</span></p>
         <button id="addRowButton">Add Row</button>
+
+        <button id="showConversionButton" onclick="showConversionTable()">Show Marks to Grade Table</button>
+
+        <div id="conversionPopup" class="popup">
+            <h2>Marks to Grade Conversion</h2>
+            <table id="conversionTable">
+                <thead>
+                    <tr>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>85 and above</td><td>A</td></tr>
+                    <tr><td>80 - 84</td><td>A-</td></tr>
+                    <tr><td>75 - 79</td><td>B+</td></tr>
+                    <tr><td>71 - 74</td><td>B</td></tr>
+                    <tr><td>68 - 70</td><td>B-</td></tr>
+                    <tr><td>64 - 67</td><td>C+</td></tr>
+                    <tr><td>60 - 63</td><td>C</td></tr>
+                    <tr><td>57 - 59</td><td>C-</td></tr>
+                    <tr><td>53 - 56</td><td>D+</td></tr>
+                    <tr><td>50 - 52</td><td>D</td></tr>
+                    <tr><td>Below 50</td><td>F</td></tr>
+                </tbody>
+            </table>
+            <button id="closePopupButton" onclick="closeConversionPopup()">Close</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
