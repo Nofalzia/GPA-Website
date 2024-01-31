@@ -14,6 +14,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; 
+    max-width: 100%;
 }
 
 h1 {
@@ -24,6 +26,7 @@ table {
     width: 100%;
     margin: 20px 0;
     border-collapse: collapse;
+    overflow-x: auto;
 }
 
 table, th, td {
@@ -53,4 +56,127 @@ p {
     margin-top: 20px;
     font-size: 18px;
     color: #333333;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    max-height: 60%; 
+    overflow-y: auto; 
+}
+
+.popup h2 {
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.popup table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.popup, .popup th, .popup td {
+    border: 1px solid #dddddd;
+}
+
+.popup th, .popup td {
+    padding: 12px;
+    text-align: left;
+}
+
+.popup button {
+    background-color: #5e9960;
+    color: #ffffff;
+    padding: 10px 100px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.popup button:hover {
+    background-color: #45a049;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #808080 #f4f4f4;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    table {
+        margin: 10px 0;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    table {
+        margin: 5px 0;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
 }
