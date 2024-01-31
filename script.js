@@ -32,7 +32,6 @@ function addRow() {
     const tableBody = document.querySelector('#gradesTable tbody');
     const newRow = tableBody.insertRow();
 
-    // Add cells for subject, credit hours, and grade
     for (let i = 0; i < 3; i++) {
         const cell = newRow.insertCell(i);
         const input = document.createElement(i === 2 ? 'select' : 'input');
@@ -80,4 +79,14 @@ function getGradePoint(grade) {
         default:
             return NaN;
     }
+}
+
+function showConversionTable() {
+    const popup = document.getElementById('conversionPopup');
+    popup.style.display = 'block';
+}
+
+function closeConversionPopup() {
+    const popup = document.getElementById('conversionPopup');
+    popup.style.display = 'none';
 }
