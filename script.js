@@ -37,7 +37,7 @@ function addRow() {
         const input = document.createElement(i === 2 ? 'select' : 'input');
         
         if (i === 2) {
-            const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-'];
+            const grades = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'F'];
             grades.forEach((grade) => {
                 const option = document.createElement('option');
                 option.value = grade;
@@ -53,29 +53,28 @@ function addRow() {
 
 function getGradePoint(grade) {
     switch (grade.toUpperCase()) {
-        case 'A+':
         case 'A':
             return 4.0;
         case 'A-':
-            return 3.7;
+            return 3.67;
         case 'B+':
-            return 3.3;
+            return 3.33;
         case 'B':
-            return 3.0;
+            return 3.00;
         case 'B-':
-            return 2.7;
+            return 2.67;
         case 'C+':
-            return 2.3;
+            return 2.33;
         case 'C':
-            return 2.0;
+            return 2.00;
         case 'C-':
-            return 1.7;
+            return 1.67;
         case 'D+':
-            return 1.3;
+            return 1.33;
         case 'D':
             return 1.0;
-        case 'D-':
-            return 0.7;
+        case 'F':
+            return 0.00;
         default:
             return NaN;
     }
