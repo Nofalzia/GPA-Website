@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('calculateButton').addEventListener('click', calculateGPA);
     document.getElementById('addRowButton').addEventListener('click', addRow);
+    document.getElementById('calculateCGPAButton').addEventListener('click', showCGPAPopup);
+    document.getElementById('addSemesterButton').addEventListener('click', addSemesterRow);
 });
 
 function calculateGPA() {
@@ -88,4 +90,56 @@ function showConversionTable() {
 function closeConversionPopup() {
     const popup = document.getElementById('conversionPopup');
     popup.style.display = 'none';
+}
+
+function toggleButtons() {
+    var additionalButtons = document.getElementById("additionalButtons");
+    if (additionalButtons.style.display === "none") {
+        additionalButtons.style.display = "block";
+    } else {
+        additionalButtons.style.display = "none";
+    }
+}
+
+function addSemesterRow() {
+    const semesterTableBody = document.querySelector('#semesterTable tbody');
+    const semesterCount = semesterTableBody.querySelectorAll('tr').length + 1;
+
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${semesterCount}</td>
+        <td><input type="number" min="0" step="0.01"></td>
+        <td><input type="number" min="0"></td>
+    `;
+
+    semesterTableBody.appendChild(newRow);
+}
+
+function showCGPAPopup() {
+    const popup = document.getElementById('cgpaPopup');
+    popup.style.display = 'block';
+}
+
+function calculateCGPA() {
+    const semesterTableRows = document.querySelectorAll('#semesterTable tbody tr');
+
+    let totalPoints = 0;
+    let totalCreditHours = 0;
+
+    semesterTableRows.forEach((row) => {
+        const gpaInput = row.cells[1].querySelector('input');
+        const creditHoursInput = row.cells[2].querySelector('input');
+
+        const gpa = parseFloat(gpaInput.value);
+        const creditHours = parseFloat(creditHoursInput.value);
+
+        if (!isNaN(gpa) && !isNaN(creditHours) && gpa >= 0 && creditHours > 0) {
+            totalPoints += gpa * creditHours;
+            totalCreditHours += creditHours;
+        }
+    });
+
+    const cgpa = totalCreditHours !== 0 ? totalPoints / totalCreditHours : 0;
+
+    document.getElementById('cgpaValue').textContent = cgpa.toFixed(2);
 }

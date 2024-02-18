@@ -21,11 +21,18 @@
                 
             </tbody>
         </table>
-        <button id="calculateButton">Calculate GPA</button>
+        <button id="calculateButton" style="background-color: #4CAF50; color: #ffffff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 4px; margin: 5px; transition: background-color 0.15s, color 0.15s;" onmouseover="this.style.backgroundColor='#45a049';" onmouseout="this.style.backgroundColor='#4CAF50';">Calculate GPA</button>
         <p>Your GPA is: <span id="result">---</span></p>
+        
+        <!-- buttons -->
         <button id="addRowButton">Add Row</button>
-
-        <button id="showConversionButton" onclick="showConversionTable()">Show Marks to Grade Table</button>
+        <button id="moreButton" onclick="toggleButtons()">More</button>
+        <div id="additionalButtons" style="display: none;">
+            <button id="calculateCGPAButton">Calculate CGPA</button>
+            <button id="showConversionButton" onclick="showConversionTable()">Show Marks to Grade Table</button>
+            <button id="BSCSPrerequisiteButton">BSCS Pre Req list</button>
+        </div>
+        <!-- buttons -->
 
         <div id="conversionPopup" class="popup">
             <h2>Marks to Grade Conversion</h2>
@@ -52,8 +59,42 @@
             </table>
             <button id="closePopupButton" onclick="closeConversionPopup()">Close</button>
         </div>
-    </div>
 
-    <script src="script.js"></script>
+<!-- Popup for CGPA Calculation -->
+<div id="cgpaPopup" class="popup">
+    <h2>Calculate CGPA</h2>
+    <div id="semesterInputs">
+        <table id="semesterTable">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>GPA</th>
+                    <th>Credit Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="addSemesterButton">Add Semester</button>
+    </div>
+    <button id="calculateCGPA">Calculate CGPA</button>
+    <p>Your CGPA is: <span id="cgpaValue">---</span></p>
+</div>
+<!-- End of CGPA Popup -->
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
+
+
+
+<!--
+    
+    Work Remaining
+
+    1) Calculate CGPA button is not showing result
+    2) Pre Req list is not built
+
+-->

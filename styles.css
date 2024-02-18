@@ -1,3 +1,5 @@
+/* Base Styles */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
@@ -14,8 +16,26 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; 
+    overflow-x: auto;
     max-width: 100%;
+}
+
+.container button {
+    background-color: transparent;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 5px;
+    transform: 10s;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.container button:hover {
+    background-color: #4CAF50;
+    color: #ffffff;
 }
 
 h1 {
@@ -39,13 +59,14 @@ th, td {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #4caf4f00;
     color: #ffffff;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    border: none;
+    border: 1px;
     border-radius: 4px;
+    margin: 2px;
 }
 
 button:hover {
@@ -70,8 +91,8 @@ p {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     z-index: 999;
-    max-height: 60%; 
-    overflow-y: auto; 
+    max-height: 60%;
+    overflow-y: auto;
 }
 
 .popup h2 {
@@ -126,6 +147,8 @@ p {
     scrollbar-width: thin;
     scrollbar-color: #808080 #f4f4f4;
 }
+
+/* Media Queries */
 
 @media only screen and (max-width: 768px) {
     .container {
