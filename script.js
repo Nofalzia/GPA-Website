@@ -39,6 +39,7 @@ function addRow() {
         const input = document.createElement(i === 2 ? 'select' : 'input');
         
         if (i === 2) {
+            // Create a dropdown (select) for grades
             const grades = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'F'];
             grades.forEach((grade) => {
                 const option = document.createElement('option');
@@ -48,10 +49,18 @@ function addRow() {
             });
         }
 
+        // Set input type based on column index
         input.type = i === 1 ? 'number' : 'text';
+
+        // Optional: Add some styling or attributes to the input elements
+        input.style.width = '80%'; // Adjust width as needed
+        input.style.height = '20px'; // Set height
+        input.placeholder = i === 1 ? '' : ''; // Placeholder text
+
         cell.appendChild(input);
     }
 }
+
 
 function getGradePoint(grade) {
     switch (grade.toUpperCase()) {
