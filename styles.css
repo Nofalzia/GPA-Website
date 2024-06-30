@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Added Google Font */
     background-color: #f4f4f4;
     margin: 0;
     display: flex;
@@ -9,7 +9,7 @@ body {
     background: url('background.png') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
-    position: relative; /* Added */
+    position: relative;
 }
 
 #translucent-cover {
