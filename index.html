@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="translucent-cover"></div>
     <div class="container">
         <h1>GPA Calculator</h1>
         <table id="gradesTable">
@@ -33,7 +34,7 @@
             <button id="BSCSPrerequisiteButton">BSCS Pre Req list</button>
         </div>
         <!-- buttons -->
-
+        
         <div id="conversionPopup" class="popup">
             <h2>Marks to Grade Conversion</h2>
             <table id="conversionTable">
@@ -59,32 +60,34 @@
             </table>
             <button id="closePopupButton" onclick="closeConversionPopup()">Close</button>
         </div>
-
-<!-- Popup for CGPA Calculation -->
-<div id="cgpaPopup" class="popup">
-    <h2>Calculate CGPA</h2>
-    <div id="semesterInputs">
-        <table id="semesterTable">
-            <thead>
-                <tr>
-                    <th>Semester</th>
-                    <th>GPA</th>
-                    <th>Credit Hours</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <button id="addSemesterButton">Add Semester</button>
+        
+        <!-- Popup for CGPA Calculation -->
+        <div id="cgpaPopup" class="popup">
+            <h2>Calculate CGPA</h2>
+            <div id="semesterInputs">
+                <table id="semesterTable">
+                    <thead>
+                        <tr>
+                            <th>Semester</th>
+                            <th>GPA</th>
+                            <th>Credit Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <button id="addSemesterButton">Add Semester</button>
+            </div>
+            <button id="calculateCGPA">Calculate CGPA</button>
+            <p>Your CGPA is: <span id="cgpaValue">---</span></p>
+        </div>
+        <!-- End of CGPA Popup -->
     </div>
-    <button id="calculateCGPA">Calculate CGPA</button>
-    <p>Your CGPA is: <span id="cgpaValue">---</span></p>
-</div>
-<!-- End of CGPA Popup -->
-</div>
-
-<script src="script.js"></script>
-
+    
+    <script src="script.js"></script>
+<footer>
+    By a Bahria Student; according to Bahria policies
+</footer>
 </body>
 </html>
 
@@ -92,9 +95,9 @@
 
 <!--
     
-    Work Remaining
+Work Remaining
 
-    1) Calculate CGPA button is not showing result
-    2) Pre Req list is not built
+1) Calculate CGPA button is not showing result
+2) Pre Req list is not built
 
 -->
