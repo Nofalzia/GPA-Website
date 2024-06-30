@@ -1,6 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #eeeeee;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -13,32 +13,32 @@ body {
 }
 
 #translucent-cover {
-    position: fixed; /* Changed from absolute to fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(245, 245, 245, 0.9); /* Translucent white cover */
+    background: rgba(245, 245, 245, 0.9);
     pointer-events: none;
     z-index: -1;
 }
 
 .container {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #fcfcfc;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow-x: auto;
     max-width: 100%;
-    position: relative; /* Added */
-    z-index: 1; /* Added */
+    position: relative;
+    z-index: 1;
 }
 
 .container button {
     background-color: transparent;
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
+    color: #4caf4fee;
+    border: 1px solid #4caf4fee;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -49,8 +49,8 @@ body {
 }
 
 .container button:hover {
-    background-color: #4CAF50;
-    color: #ffffff;
+    background-color: #4CAF50ee;
+    color: #fcfcfc;
 }
 
 h1 {
@@ -75,7 +75,7 @@ th, td {
 
 button {
     background-color: #4caf4f00;
-    color: #ffffff;
+    color: #fcfcfc;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -85,7 +85,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049ee;
 }
 
 p {
@@ -101,20 +101,28 @@ p {
     bottom: 20%;
     left: 50%;
     transform: translate(-50%, 0);
-    background-color: #ffffff;
+    background-color: #fcfcfc;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     z-index: 999;
     max-height: 60%;
     overflow-y: auto;
+    width: 90%; /* Default width for the popup */
 }
 
+/* Specific popup styles */
+#cgpaPopup.popup {
+    margin: 5px; /* Margins inside the popup */
+}
+
+/* Popup heading */
 .popup h2 {
     color: #333333;
     margin-bottom: 15px;
 }
 
+/* Popup table */
 .popup table {
     width: 100%;
     margin-top: 10px;
@@ -131,9 +139,9 @@ p {
 }
 
 .popup button {
-    background-color: #4CAF50;
-    color: #ffffff;
-    padding: 10px 100px;
+    background-color: #4CAF50ee;
+    color: #fcfcfc;
+    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border: none;
@@ -142,9 +150,25 @@ p {
 }
 
 .popup button:hover {
-    background-color: #45a049;
+    background-color: #45a049ee;
 }
 
+.popup button.close-button {
+    background-color: #f44336ee; /* Red color for close button */
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.popup button.close-button:hover {
+    background-color: #e53935;
+}
+
+/* Scrollbar styles */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -180,6 +204,7 @@ footer {
 @media only screen and (max-width: 768px) {
     .container {
         padding: 15px;
+        margin: 5%;
     }
 
     table {
@@ -201,6 +226,11 @@ footer {
 
     h1 {
         font-size: 24px;
+    }
+
+    /* Adjust popup width on medium screens */
+    .popup {
+        width: 80%;
     }
 }
 
@@ -229,5 +259,10 @@ footer {
 
     h1 {
         font-size: 20px;
+    }
+
+    /* Adjust popup width on small screens */
+    .popup {
+        width: 80%;
     }
 }

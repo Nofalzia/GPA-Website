@@ -23,7 +23,7 @@
                 
             </tbody>
         </table>
-        <button id="calculateButton" style="background-color: #4CAF50; color: #ffffff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 4px; margin: 5px; transition: background-color 0.15s, color 0.15s;" onmouseover="this.style.backgroundColor='#45a049';" onmouseout="this.style.backgroundColor='#4CAF50';">Calculate GPA</button>
+        <button id="calculateButton" style="background-color: #4caf4fee; color: #eeeeee; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 4px; margin: 5px; transition: background-color 0.15s, color 0.15s;" onmouseover="this.style.backgroundColor='#45a049';" onmouseout="this.style.backgroundColor='#4CAF50';">Calculate GPA</button>
         <p>Your GPA is: <span id="result">---</span></p>
         
         <!-- buttons -->
@@ -63,25 +63,28 @@
         </div>
         
         <!-- Popup for CGPA Calculation -->
-        <div id="cgpaPopup" class="popup">
-            <h2>Calculate CGPA</h2>
-            <div id="semesterInputs">
-                <table id="semesterTable">
-                    <thead>
-                        <tr>
-                            <th>Semester</th>
-                            <th>GPA</th>
-                            <th>Credit Hours</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <button id="addSemesterButton">Add Semester</button>
-            </div>
-            <button id="calculateCGPA">Calculate CGPA</button>
-            <p>Your CGPA is: <span id="cgpaValue">---</span></p>
-        </div>
+<!-- CGPA Popup -->
+<div id="cgpaPopup" class="popup">
+    <h2>Calculate CGPA</h2>
+    <div id="semesterInputs">
+        <table id="semesterTable">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>GPA</th>
+                    <th>Credit Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="addSemesterButton">Add Semester</button>
+    </div>
+    <button id="calculateCGPA">Calculate CGPA</button>
+    <p>Your CGPA is: <span id="cgpaValue">---</span></p>
+    <button id="closeCGPAPopupButton" class="close-button" onclick="closeCGPAPopup()">Close</button>
+</div>
+
         <!-- End of CGPA Popup -->
     </div>
     

@@ -152,3 +152,34 @@ function calculateCGPA() {
 
     document.getElementById('cgpaValue').textContent = cgpa.toFixed(2);
 }
+
+// Close the Conversion Popup
+function closeConversionPopup() {
+    document.getElementById('conversionPopup').style.display = 'none';
+}
+
+// Close the CGPA Popup
+function closeCGPAPopup() {
+    document.getElementById('cgpaPopup').style.display = 'none';
+}
+
+// Open the Conversion Popup
+function showConversionTable() {
+    document.getElementById('conversionPopup').style.display = 'block';
+}
+
+// Open the CGPA Popup
+document.getElementById('calculateCGPAButton').addEventListener('click', function() {
+    document.getElementById('cgpaPopup').style.display = 'block';
+});
+
+// event listener to close popups when clicking outside
+window.addEventListener('click', function(event) {
+    const conversionPopup = document.getElementById('conversionPopup');
+    const cgpaPopup = document.getElementById('cgpaPopup');
+    if (event.target === conversionPopup) {
+        closeConversionPopup();
+    } else if (event.target === cgpaPopup) {
+        closeCGPAPopup();
+    }
+});
