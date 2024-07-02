@@ -1,6 +1,24 @@
+:root {
+    --background-color: #eeeeee;
+    --background-image-color: rgba(0, 0, 0, 0.9);
+    --container-bg-color: #fcfcfc;
+    --button-bg-color: #28405c;
+    --button-hover-bg-color: #28405c;
+    --button-text-color: #fcfcfc;
+    --button-border-color: #28405c;
+    --popup-bg-color: #fcfcfc;
+    --popup-border-color: #dddddd;
+    --popup-close-button-bg-color: #b03128ee;
+    --popup-close-button-hover-bg-color: #b03128ee;
+    --text-color: #333333;
+    --scrollbar-thumb-color: #808080;
+    --scrollbar-track-color: #f4f4f4;
+    --footer-text-color: rgb(255, 255, 255);
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #eeeeee;
+    background-color: var(--background-color);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -18,14 +36,15 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(245, 245, 245, 0.9);
+    background: var(--background-image-color);
     pointer-events: none;
     z-index: -1;
+    filter: blur(35vh);
 }
 
 .container {
     text-align: center;
-    background-color: #fcfcfc;
+    background-color: var(--container-bg-color);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -37,8 +56,8 @@ body {
 
 .container button {
     background-color: transparent;
-    color: #28405c;
-    border: 1px solid #28405c;
+    color: var(--button-border-color);
+    border: 1px solid var(--button-border-color);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -49,12 +68,8 @@ body {
 }
 
 .container button:hover {
-    background-color: #28405c;
-    color: #fcfcfc;
-}
-
-h1 {
-    color: #333333;
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-text-color);
 }
 
 table {
@@ -65,7 +80,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #dddddd;
+    border: 1px solid var(--popup-border-color);
 }
 
 th, td {
@@ -74,8 +89,8 @@ th, td {
 }
 
 button {
-    background-color: #28405c;
-    color: #fcfcfc;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -85,40 +100,35 @@ button {
 }
 
 button:hover {
-    background-color: #28405c;
+    background-color: var(--button-hover-bg-color);
 }
 
 p {
     margin-top: 20px;
     font-size: 18px;
-    color: #333333;
+    color: var(--text-color);
 }
 
 .popup {
     display: none;
     position: fixed;
-    top: 20%;
-    bottom: 20%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, 0);
-    background-color: #fcfcfc;
+    background-color: var(--popup-bg-color);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     z-index: 999;
-    max-height: 60%;
+    max-height: 80%;
     overflow-y: auto;
-    width: 90%; /* Default width for the popup */
-}
-
-/* Specific popup styles */
-#cgpaPopup.popup {
-    margin: 5px; /* Margins inside the popup */
+    width: 70%; /* Default width for the popup */
+    margin: 0 
 }
 
 /* Popup heading */
 .popup h2 {
-    color: #333333;
+    color: var(--text-color);
     margin-bottom: 15px;
 }
 
@@ -130,7 +140,7 @@ p {
 }
 
 .popup, .popup th, .popup td {
-    border: 1px solid #dddddd;
+    border: 1px solid var(--popup-border-color);
 }
 
 .popup th, .popup td {
@@ -139,8 +149,8 @@ p {
 }
 
 .popup button {
-    background-color: #28405c;
-    color: #fcfcfc;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -150,12 +160,12 @@ p {
 }
 
 .popup button:hover {
-    background-color: #28405c;
+    background-color: var(--button-hover-bg-color);
 }
 
 .popup button.close-button {
-    background-color: #b03128ee; /* Red color for close button */
-    color: #ffffff;
+    background-color: var(--popup-close-button-bg-color); /* Red color for close button */
+    color: var(--button-text-color);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -165,7 +175,7 @@ p {
 }
 
 .popup button.close-button:hover {
-    background-color: #b03128ee;
+    background-color: var(--popup-close-button-hover-bg-color);
 }
 
 /* Scrollbar styles */
@@ -174,23 +184,22 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #808080;
+    background-color: var(--scrollbar-thumb-color);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f4f4f4;
+    background-color: var(--scrollbar-track-color);
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: #808080 #f4f4f4;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
 
 
 footer {
-    background-color:rgba(255, 255, 255, 0.70);
-    color:black;
+    color: var(--footer-text-color);
     text-align: center;
     padding: 0.5%;
     position: absolute;
@@ -198,8 +207,16 @@ footer {
     width: 100%;
 }
 
-
 /* Media Queries */
+
+/* Adjust the width for Windows screens */
+@media screen and (min-width: 768px) {
+    .popup {
+        width: 60%;
+        height: 70%;
+    }
+}
+
 
 @media only screen and (max-width: 768px) {
     .container {
@@ -264,5 +281,6 @@ footer {
     /* Adjust popup width on small screens */
     .popup {
         width: 80%;
+        height: 70%;
     }
 }
