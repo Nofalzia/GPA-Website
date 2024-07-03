@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('addRowButton').addEventListener('click', addRow);
     document.getElementById('calculateCGPAButton').addEventListener('click', showCGPAPopup);
     document.getElementById('addSemesterButton').addEventListener('click', addSemesterRow);
+    document.getElementById('calculateCGPA').addEventListener('click', calculateCGPA); // Add this line
 });
+
 
 function calculateGPA() {
     const tableRows = document.querySelectorAll('#gradesTable tbody tr');

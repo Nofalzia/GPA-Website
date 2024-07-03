@@ -1,16 +1,16 @@
 :root {
     --background-color: #eeeeee;
-    --background-image-color: rgba(0, 0, 0, 0.9);
+    --background-image-color: rgba(0, 0, 0, 0.2);
     --container-bg-color: #fcfcfc;
-    --button-bg-color: #28405c;
-    --button-hover-bg-color: #28405c;
+    --button-bg-color: #085464;
+    --button-hover-bg-color: #085464;
     --button-text-color: #fcfcfc;
-    --button-border-color: #28405c;
+    --button-border-color: #085464;
     --popup-bg-color: #fcfcfc;
     --popup-border-color: #dddddd;
     --popup-close-button-bg-color: #b03128ee;
     --popup-close-button-hover-bg-color: #b03128ee;
-    --text-color: #333333;
+    --text-color: #000000;
     --scrollbar-thumb-color: #808080;
     --scrollbar-track-color: #f4f4f4;
     --footer-text-color: rgb(255, 255, 255);
@@ -39,7 +39,6 @@ body {
     background: var(--background-image-color);
     pointer-events: none;
     z-index: -1;
-    filter: blur(35vh);
 }
 
 .container {
