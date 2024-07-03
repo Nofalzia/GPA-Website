@@ -23,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: url('background.png') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
@@ -196,7 +196,6 @@ p {
     scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
 
-
 footer {
     color: var(--footer-text-color);
     text-align: center;
@@ -215,7 +214,6 @@ footer {
         height: 70%;
     }
 }
-
 
 @media only screen and (max-width: 768px) {
     .container {
