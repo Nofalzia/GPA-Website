@@ -275,6 +275,10 @@ footer {
         font-size: 20px;
     }
 
+    footer{
+        font-size: smaller;
+    }
+
     /* Adjust popup width on small screens */
     .popup {
         width: 80%;
