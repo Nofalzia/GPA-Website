@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GPA Calculator</title>
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
 <body>
     <div id="translucent-cover"></div>
     <div class="container">
@@ -20,22 +20,23 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <!-- Rows will be added dynamically -->
             </tbody>
         </table>
-        <button id="calculateButton" style="background-color: #085464; color: #ffffff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 4px; margin: 5px; transition: background-color 0.15s, color 0.15s;" onmouseover="this.style.backgroundColor='#085464e5';" onmouseout="this.style.backgroundColor='#085464';">Calculate GPA</button>
+        <button id="calculateButton" style="background-color: #085464; color: #ffffff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 4px; margin: 5px; transition: background-color 0.15s, color 0.15s;" onmouseover="this.style.backgroundColor='#085464e5';" onmouseout="this.style.backgroundColor='#085464';">
+            Calculate GPA
+        </button>
         <p>Your GPA is: <span id="result">---</span></p>
-        
+
         <!-- buttons -->
         <button id="addRowButton">Add Row</button>
         <button id="moreButton" onclick="toggleButtons()">More</button>
         <div id="additionalButtons" style="display: none;">
             <button id="calculateCGPAButton">Calculate CGPA</button>
             <button id="showConversionButton" onclick="showConversionTable()">Marks to Grade Table</button>
-            <button id="BSCSPrerequisiteButton">Pre Req list</button>
         </div>
         <!-- buttons -->
-        
+
         <div id="conversionPopup" class="popup">
             <h2>Marks to Grade Conversion</h2>
             <table id="conversionTable">
@@ -61,46 +62,35 @@
             </table>
             <button id="closePopupButton" onclick="closeConversionPopup()">Close</button>
         </div>
-        
-        <!-- Popup for CGPA Calculation -->
-<!-- CGPA Popup -->
-<div id="cgpaPopup" class="popup">
-    <h2>Calculate CGPA</h2>
-    <div id="semesterInputs">
-        <table id="semesterTable">
-            <thead>
-                <tr>
-                    <th>Semester</th>
-                    <th>GPA</th>
-                    <th>Credit Hours</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <button id="addSemesterButton">Add Semester</button>
-    </div>
-    <button id="calculateCGPA">Calculate CGPA</button>
-    <p>Your CGPA is: <span id="cgpaValue">---</span></p>
-    <button id="closeCGPAPopupButton" class="close-button" onclick="closeCGPAPopup()">Close</button>
-</div>
 
+        <!-- CGPA Popup -->
+        <div id="cgpaPopup" class="popup">
+            <h2>Calculate CGPA</h2>
+            <div id="semesterInputs">
+                <table id="semesterTable">
+                    <thead>
+                        <tr>
+                            <th>Semester</th>
+                            <th>GPA</th>
+                            <th>Credit Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added dynamically -->
+                    </tbody>
+                </table>
+                <button id="addSemesterButton">Add Semester</button>
+            </div>
+            <button id="calculateCGPA">Calculate CGPA</button>
+            <p>Your CGPA is: <span id="cgpaValue">---</span></p>
+            <button id="closeCGPAPopupButton" class="close-button" onclick="closeCGPAPopup()">Close</button>
+        </div>
         <!-- End of CGPA Popup -->
     </div>
     
     <script src="script.js"></script>
-<footer>
-    By a Bahria Student; according to Bahria policies
-</footer>
+    <footer>
+        By a Bahria Student; according to Bahria policies
+    </footer>
 </body>
 </html>
-
-
-
-<!--
-    
-Work Remaining
-
-1) Pre Req list is not built
-
--->

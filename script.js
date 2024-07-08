@@ -3,9 +3,17 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('addRowButton').addEventListener('click', addRow);
     document.getElementById('calculateCGPAButton').addEventListener('click', showCGPAPopup);
     document.getElementById('addSemesterButton').addEventListener('click', addSemesterRow);
-    document.getElementById('calculateCGPA').addEventListener('click', calculateCGPA); // Add this line
+    document.getElementById('calculateCGPA').addEventListener('click', calculateCGPA);
+    window.addEventListener('click', function(event) {
+        const conversionPopup = document.getElementById('conversionPopup');
+        const cgpaPopup = document.getElementById('cgpaPopup');
+        if (event.target === conversionPopup) {
+            closeConversionPopup();
+        } else if (event.target === cgpaPopup) {
+            closeCGPAPopup();
+        }
+    });
 });
-
 
 function calculateGPA() {
     const tableRows = document.querySelectorAll('#gradesTable tbody tr');
@@ -13,7 +21,6 @@ function calculateGPA() {
     let totalCredits = 0;
 
     tableRows.forEach((row) => {
-        const subject = row.cells[0].querySelector('input').value;
         const credit = parseFloat(row.cells[1].querySelector('input').value);
         const grade = row.cells[2].querySelector('select').selectedOptions[0].value;
 
@@ -41,7 +48,6 @@ function addRow() {
         const input = document.createElement(i === 2 ? 'select' : 'input');
         
         if (i === 2) {
-            // Create a dropdown (select) for grades
             const grades = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'F'];
             grades.forEach((grade) => {
                 const option = document.createElement('option');
@@ -49,20 +55,15 @@ function addRow() {
                 option.text = grade;
                 input.add(option);
             });
+        } else {
+            input.type = i === 1 ? 'number' : 'text';
+            input.style.width = '80%';
+            input.style.height = '20px';
         }
-
-        // Set input type based on column index
-        input.type = i === 1 ? 'number' : 'text';
-
-        // Optional: Add some styling or attributes to the input elements
-        input.style.width = '80%'; // Adjust width as needed
-        input.style.height = '20px'; // Set height
-        input.placeholder = i === 1 ? '' : ''; // Placeholder text
 
         cell.appendChild(input);
     }
 }
-
 
 function getGradePoint(grade) {
     switch (grade.toUpperCase()) {
@@ -94,22 +95,16 @@ function getGradePoint(grade) {
 }
 
 function showConversionTable() {
-    const popup = document.getElementById('conversionPopup');
-    popup.style.display = 'block';
+    document.getElementById('conversionPopup').style.display = 'block';
 }
 
 function closeConversionPopup() {
-    const popup = document.getElementById('conversionPopup');
-    popup.style.display = 'none';
+    document.getElementById('conversionPopup').style.display = 'none';
 }
 
 function toggleButtons() {
-    var additionalButtons = document.getElementById("additionalButtons");
-    if (additionalButtons.style.display === "none") {
-        additionalButtons.style.display = "block";
-    } else {
-        additionalButtons.style.display = "none";
-    }
+    const additionalButtons = document.getElementById("additionalButtons");
+    additionalButtons.style.display = additionalButtons.style.display === "none" ? "block" : "none";
 }
 
 function addSemesterRow() {
@@ -127,8 +122,7 @@ function addSemesterRow() {
 }
 
 function showCGPAPopup() {
-    const popup = document.getElementById('cgpaPopup');
-    popup.style.display = 'block';
+    document.getElementById('cgpaPopup').style.display = 'block';
 }
 
 function calculateCGPA() {
@@ -138,11 +132,8 @@ function calculateCGPA() {
     let totalCreditHours = 0;
 
     semesterTableRows.forEach((row) => {
-        const gpaInput = row.cells[1].querySelector('input');
-        const creditHoursInput = row.cells[2].querySelector('input');
-
-        const gpa = parseFloat(gpaInput.value);
-        const creditHours = parseFloat(creditHoursInput.value);
+        const gpa = parseFloat(row.cells[1].querySelector('input').value);
+        const creditHours = parseFloat(row.cells[2].querySelector('input').value);
 
         if (!isNaN(gpa) && !isNaN(creditHours) && gpa >= 0 && creditHours > 0) {
             totalPoints += gpa * creditHours;
@@ -155,33 +146,6 @@ function calculateCGPA() {
     document.getElementById('cgpaValue').textContent = cgpa.toFixed(2);
 }
 
-// Close the Conversion Popup
-function closeConversionPopup() {
-    document.getElementById('conversionPopup').style.display = 'none';
-}
-
-// Close the CGPA Popup
 function closeCGPAPopup() {
     document.getElementById('cgpaPopup').style.display = 'none';
 }
-
-// Open the Conversion Popup
-function showConversionTable() {
-    document.getElementById('conversionPopup').style.display = 'block';
-}
-
-// Open the CGPA Popup
-document.getElementById('calculateCGPAButton').addEventListener('click', function() {
-    document.getElementById('cgpaPopup').style.display = 'block';
-});
-
-// event listener to close popups when clicking outside
-window.addEventListener('click', function(event) {
-    const conversionPopup = document.getElementById('conversionPopup');
-    const cgpaPopup = document.getElementById('cgpaPopup');
-    if (event.target === conversionPopup) {
-        closeConversionPopup();
-    } else if (event.target === cgpaPopup) {
-        closeCGPAPopup();
-    }
-});

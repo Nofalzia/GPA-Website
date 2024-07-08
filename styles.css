@@ -1,5 +1,5 @@
 :root {
-    --background-color: #eeeeee;
+    --background-color: #085464;
     --background-image-color: rgba(0, 0, 0, 0.2);
     --container-bg-color: #fcfcfc;
     --button-bg-color: #085464;
@@ -24,10 +24,11 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('background.png') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
     position: relative;
+    background: rgb(8,84,100);
+    background: linear-gradient(45deg, rgba(8,84,100,1) 20%, rgba(255,255,255,1) 100%);
 }
 
 #translucent-cover {
@@ -46,7 +47,7 @@ body {
     background-color: var(--container-bg-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
     overflow-x: auto;
     max-width: 100%;
     position: relative;
@@ -121,17 +122,15 @@ p {
     z-index: 999;
     max-height: 80%;
     overflow-y: auto;
-    width: 70%; /* Default width for the popup */
-    margin: 0 
+    width: 70%;
+    margin: 0;
 }
 
-/* Popup heading */
 .popup h2 {
     color: var(--text-color);
     margin-bottom: 15px;
 }
 
-/* Popup table */
 .popup table {
     width: 100%;
     margin-top: 10px;
@@ -163,7 +162,7 @@ p {
 }
 
 .popup button.close-button {
-    background-color: var(--popup-close-button-bg-color); /* Red color for close button */
+    background-color: var(--popup-close-button-bg-color); 
     color: var(--button-text-color);
     padding: 10px 20px;
     font-size: 16px;
@@ -206,8 +205,6 @@ footer {
 }
 
 /* Media Queries */
-
-/* Adjust the width for Windows screens */
 @media screen and (min-width: 768px) {
     .popup {
         width: 60%;
@@ -242,9 +239,23 @@ footer {
         font-size: 24px;
     }
 
-    /* Adjust popup width on medium screens */
     .popup {
-        width: 80%;
+        width: 90%; 
+    }
+
+    .popup table {
+        width: 100%;
+    }
+
+    .popup th, .popup td {
+        padding: 8px;
+        font-size: 14px; 
+        word-wrap: break-word; 
+    }
+
+    .popup input {
+        width: 100%; 
+        box-sizing: border-box; 
     }
 }
 
@@ -275,11 +286,10 @@ footer {
         font-size: 20px;
     }
 
-    footer{
+    footer {
         font-size: smaller;
     }
 
-    /* Adjust popup width on small screens */
     .popup {
         width: 80%;
         height: 70%;
