@@ -1,9 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
+    loadTableData(); // Load saved data when the page loads
+    loadSemesterData(); // Load saved semester data when the page loads
+
     document.getElementById('calculateButton').addEventListener('click', calculateGPA);
     document.getElementById('addRowButton').addEventListener('click', addRow);
     document.getElementById('calculateCGPAButton').addEventListener('click', showCGPAPopup);
     document.getElementById('addSemesterButton').addEventListener('click', addSemesterRow);
     document.getElementById('calculateCGPA').addEventListener('click', calculateCGPA);
+
+    // Save data whenever the user adds a row or inputs data
+    document.querySelector('#gradesTable tbody').addEventListener('input', saveTableData);
+    document.getElementById('semesterTable').addEventListener('input', saveSemesterData);
+
     window.addEventListener('click', function(event) {
         const conversionPopup = document.getElementById('conversionPopup');
         const cgpaPopup = document.getElementById('cgpaPopup');
@@ -39,7 +47,7 @@ function calculateGPA() {
     }
 }
 
-function addRow() {
+function addRow(data = { subject: '', credit: '', grade: '' }) {
     const tableBody = document.querySelector('#gradesTable tbody');
     const newRow = tableBody.insertRow();
 
@@ -55,10 +63,12 @@ function addRow() {
                 option.text = grade;
                 input.add(option);
             });
+            input.value = data.grade; // Set the grade value
         } else {
             input.type = i === 1 ? 'number' : 'text';
             input.style.width = '80%';
             input.style.height = '20px';
+            input.value = i === 0 ? data.subject : data.credit; // Set the subject or credit value
         }
 
         cell.appendChild(input);
@@ -107,15 +117,15 @@ function toggleButtons() {
     additionalButtons.style.display = additionalButtons.style.display === "none" ? "block" : "none";
 }
 
-function addSemesterRow() {
+function addSemesterRow(data = { gpa: '', creditHours: '' }) {
     const semesterTableBody = document.querySelector('#semesterTable tbody');
     const semesterCount = semesterTableBody.querySelectorAll('tr').length + 1;
 
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td>${semesterCount}</td>
-        <td><input type="number" min="0" step="0.01"></td>
-        <td><input type="number" min="0"></td>
+        <td><input type="number" min="0" step="0.01" value="${data.gpa}"></td>
+        <td><input type="number" min="0" value="${data.creditHours}"></td>
     `;
 
     semesterTableBody.appendChild(newRow);
@@ -148,4 +158,51 @@ function calculateCGPA() {
 
 function closeCGPAPopup() {
     document.getElementById('cgpaPopup').style.display = 'none';
+}
+
+function saveTableData() {
+    const tableRows = document.querySelectorAll('#gradesTable tbody tr');
+    const tableData = [];
+
+    tableRows.forEach((row) => {
+        const subject = row.cells[0].querySelector('input').value;
+        const credit = row.cells[1].querySelector('input').value;
+        const grade = row.cells[2].querySelector('select').value;
+        tableData.push({ subject, credit, grade });
+    });
+
+    localStorage.setItem('gradesTable', JSON.stringify(tableData));
+}
+
+function loadTableData() {
+    const savedData = JSON.parse(localStorage.getItem('gradesTable'));
+
+    if (savedData) {
+        savedData.forEach((rowData) => {
+            addRow(rowData);
+        });
+    }
+}
+
+function saveSemesterData() {
+    const semesterRows = document.querySelectorAll('#semesterTable tbody tr');
+    const semesterData = [];
+
+    semesterRows.forEach((row) => {
+        const gpa = row.cells[1].querySelector('input').value;
+        const creditHours = row.cells[2].querySelector('input').value;
+        semesterData.push({ gpa, creditHours });
+    });
+
+    localStorage.setItem('semesterTable', JSON.stringify(semesterData));
+}
+
+function loadSemesterData() {
+    const savedData = JSON.parse(localStorage.getItem('semesterTable'));
+
+    if (savedData) {
+        savedData.forEach((rowData) => {
+            addSemesterRow(rowData);
+        });
+    }
 }
