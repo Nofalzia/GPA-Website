@@ -68,7 +68,7 @@ function addRow(data = { subject: '', credit: '', grade: '' }) {
             input.type = i === 1 ? 'number' : 'text';
             input.style.width = '80%';
             input.style.height = '20px';
-            input.value = i === 0 ? data.subject : data.credit; // Set the subject or credit value
+            input.value = i === 0 ? data.subject || '' : data.credit || '';
         }
 
         cell.appendChild(input);
