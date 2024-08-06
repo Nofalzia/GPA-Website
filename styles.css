@@ -1,20 +1,41 @@
 :root {
-    --background-color: #085464;
+    --background-color: #4c7766;
     --background-image-color: rgba(0, 0, 0, 0.2);
-    --container-bg-color: #fcfcfc;
-    --button-bg-color: #085464;
-    --button-hover-bg-color: #085464;
-    --button-text-color: #fcfcfc;
-    --button-border-color: #085464;
-    --popup-bg-color: #fcfcfc;
+    --container-bg-color: #ebe6e0;
+    --button-bg-color: #4c7766;
+    --button-hover-bg-color: #4c7766;
+    --button-text-color: #ebe6e0;
+    --button-border-color: #4c7766;
+    --popup-bg-color: #ebe6e0;
     --popup-border-color: #dddddd;
     --popup-close-button-bg-color: #b03128ee;
     --popup-close-button-hover-bg-color: #b03128ee;
     --text-color: #000000;
     --scrollbar-thumb-color: #808080;
-    --scrollbar-track-color: #f4f4f4;
-    --footer-text-color: rgb(255, 255, 255);
+    --scrollbar-track-color: #ebe6e0;
+    --footer-text-color: rgb(235, 230, 224);
 }
+
+.custom-font { /* For heading */
+    color: #4c7766;    
+    font-size: 175%;
+    font-weight: bolder;
+}
+
+input, select {
+    color: #000;
+    background-color: #ebe6e0; 
+    border: 1px solid #4c7766; 
+    border-radius: 4px;
+    padding: 5px;
+}
+
+input:focus, select:focus {
+    outline: none; 
+    border-color: #334f44; /* Border color when clicked on */
+    background-color: #ebe6e0; /* Background color when clickef on */
+}
+
 
 body {
     font-family: 'Inter', sans-serif;
@@ -27,8 +48,8 @@ body {
     background-size: cover;
     overflow: hidden;
     position: relative;
-    background: rgb(8,84,100);
-    background: linear-gradient(45deg, rgba(8,84,100,1) 20%, rgba(255,255,255,1) 100%);
+    background: #4c7766;
+    background: linear-gradient(45deg, rgba(76, 119, 102,1) 20%, rgba(235, 230, 224,1) 100%);
 }
 
 #translucent-cover {
