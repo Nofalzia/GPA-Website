@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    loadTableData(); // Load saved data when the page loads
-    loadSemesterData(); // Load saved semester data when the page loads
+    loadTableData(); // This should handle adding initial rows if needed
+    loadSemesterData();
 
     document.getElementById('calculateButton').addEventListener('click', calculateGPA);
     document.getElementById('addRowButton').addEventListener('click', addRow);
@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Save data whenever the user adds a row or inputs data
     document.querySelector('#gradesTable tbody').addEventListener('input', saveTableData);
     document.getElementById('semesterTable').addEventListener('input', saveSemesterData);
+
+    document.getElementById('clearGPAandCGPA').addEventListener('click', clearGPAData);
+    document.getElementById('clearGPAandCGPA').addEventListener('click', clearCGPAData);
 
     window.addEventListener('click', function(event) {
         const conversionPopup = document.getElementById('conversionPopup');
@@ -23,33 +26,62 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function addInitialRows() {
+    // Add two empty rows if there are no saved data
+    for (let i = 0; i < 2; i++) {
+        addRow();
+    }
+}
+
+function loadTableData() {
+    const savedData = JSON.parse(localStorage.getItem('gradesTable')) || [];
+    if (savedData.length === 0) {
+        console.log("No saved data found, adding initial rows...");
+        addInitialRows(); // Add two empty rows if no data is loaded
+    } else {
+        savedData.forEach(rowData => addRow(rowData));
+    }
+}
+
+
 function calculateGPA() {
     const tableRows = document.querySelectorAll('#gradesTable tbody tr');
     let totalPoints = 0;
     let totalCredits = 0;
 
     tableRows.forEach((row) => {
-        const credit = parseFloat(row.cells[1].querySelector('input').value);
-        const grade = row.cells[2].querySelector('select').selectedOptions[0].value;
+        // Get credit value
+        const creditInput = row.cells[1].querySelector('input');
+        const credit = parseFloat(creditInput.value);
 
-        if (!isNaN(credit) && !isNaN(getGradePoint(grade))) {
+        // Get grade value
+        const gradeSelect = row.cells[2].querySelector('select');
+        const grade = gradeSelect.value;
+
+        // Debugging information
+        console.log('Credit:', credit); 
+        console.log('Grade:', grade); 
+
+        // Only process rows with valid data
+        if (!isNaN(credit) && credit > 0 && !isNaN(getGradePoint(grade))) {
             totalCredits += credit;
             totalPoints += getGradePoint(grade) * credit;
         }
     });
 
-    const gpa = totalPoints / totalCredits;
+    // Calculate GPA
+    const gpa = totalCredits > 0 ? totalPoints / totalCredits : 0;
 
-    if (!isNaN(gpa)) {
-        document.getElementById('result').innerText = gpa.toFixed(2);
-    } else {
-        document.getElementById('result').innerText = 'Invalid input';
-    }
+    // Output GPA or an error message
+    document.getElementById('result').innerText = totalCredits > 0 ? gpa.toFixed(2) : 'No valid data to calculate GPA';
 }
+
 
 function addRow(data = { subject: '', credit: '', grade: '' }) {
     const tableBody = document.querySelector('#gradesTable tbody');
     const newRow = tableBody.insertRow();
+    
+    console.log('Adding row with data:', data); // Debugging line
 
     for (let i = 0; i < 3; i++) {
         const cell = newRow.insertCell(i);
@@ -74,6 +106,7 @@ function addRow(data = { subject: '', credit: '', grade: '' }) {
         cell.appendChild(input);
     }
 }
+
 
 function getGradePoint(grade) {
     switch (grade.toUpperCase()) {
@@ -205,4 +238,18 @@ function loadSemesterData() {
             addSemesterRow(rowData);
         });
     }
+}
+
+function clearGPAData() {
+    const tableBody = document.querySelector('#gradesTable tbody');
+    tableBody.innerHTML = '';
+    localStorage.removeItem('gradesTable');
+    document.getElementById('result').innerText = '';
+}
+
+function clearCGPAData() {
+    const semesterTableBody = document.querySelector('#semesterTable tbody');
+    semesterTableBody.innerHTML = '';
+    localStorage.removeItem('semesterTable');
+    document.getElementById('cgpaValue').textContent = '';
 }

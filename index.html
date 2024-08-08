@@ -10,7 +10,6 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="translucent-cover"></div>
     <div class="container">
         <h1 class="custom-font">GPA Calculator</h1>
         According to Bahria University Policies
@@ -37,6 +36,7 @@
         <div id="additionalButtons" style="display: none;">
             <button id="calculateCGPAButton">Calculate CGPA</button>
             <button id="showConversionButton" onclick="showConversionTable()">Marks to Grade Table</button>
+            <button id="clearGPAandCGPA">Clear Data</button>
         </div>
         <!-- buttons -->
 
@@ -89,13 +89,24 @@
             <button id="closeCGPAPopupButton" class="close-button" onclick="closeCGPAPopup()">Close</button>
         </div>
         <!-- End of CGPA Popup -->
+      
     </div>
-    
+
+    <div id="clearData" class="container">
+        <h2 class="custom-font">Next Steps</h2>
+    </div>
+
+    <div id="newSection" class="container">
+        <h2 class="custom-font">Ads? maybe</h2>
+        <p></p>
+    </div>
+
     <script src="script.js"></script>
 
     <footer>
-        Website Made By <a href="mailto:nofalzia4s@gmail.com">Nofal Zia</a>
+        Made By <a href="mailto:nofalzia4s@gmail.com">Nofal Zia</a> | All Rights Reserved © 2024
+        <br>
+        This website contains data sourced from <a href="https://bahria.edu.pk/buic/" target="_blank">Bahria University (BUIC)</a>. The content is provided for informational purposes only and is not endorsed by or affiliated with Bahria University. For official information, please visit the university's official website.
     </footer>
-
 </body>
 </html>

@@ -16,16 +16,28 @@
     --footer-text-color: rgb(235, 230, 224);
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--background-color);
     margin: 0;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-size: cover;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     background: #4c7766;
     background: linear-gradient(45deg, rgba(76, 119, 102,1) 20%, rgba(235, 230, 224,1) 100%);
@@ -52,27 +64,25 @@ input:focus, select:focus {
     background-color: #ebe6e0; /* Background color when clickef on */
 }
 
-#translucent-cover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--background-image-color);
-    pointer-events: none;
-    z-index: -1;
-}
-
 .container {
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
     text-align: center;
     background-color: var(--container-bg-color);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
     overflow-x: auto;
-    max-width: 100%;
+    max-width: 450px;
+    min-height: 300px;
     position: relative;
     z-index: 1;
+}
+
+#newSection, #clearData {
+    z-index: 0;
 }
 
 .container button {
@@ -134,7 +144,7 @@ p {
     display: none;
     position: fixed;
     top: 10%;
-    left: 50%;
+    left: 48%;
     transform: translate(-50%, 0);
     background-color: var(--popup-bg-color);
     padding: 20px;
@@ -217,25 +227,27 @@ p {
 }
 
 footer {
-    color: #ffffff; 
+    color: #dddddd; 
     font-size: 12px; 
     text-align: center; 
     padding: 10px; 
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    position: relative;
+    width: 99%;
 }
 
 footer a {
     color: #ffffff; 
-    text-decoration: none; 
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
 }
 
 footer a:hover {
-    text-decoration: underline; 
-    color: #dddddd; 
+    text-decoration: underline;
+    color: #ffffff;
+    transform: scale(1.5); 
+    text-shadow: 0 0 1px #ffffff;
 }
-
 
 /* Media Queries */
 @media screen and (min-width: 768px) {
@@ -248,7 +260,9 @@ footer a:hover {
 @media only screen and (max-width: 768px) {
     .container {
         padding: 15px;
-        margin: 5%;
+        margin: 10%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     table {
@@ -262,6 +276,7 @@ footer a:hover {
     button {
         padding: 8px 16px;
         font-size: 14px;
+        font-weight: 550;
     }
 
     p {
@@ -274,6 +289,7 @@ footer a:hover {
 
     .popup {
         width: 90%; 
+        left: 50%;
     }
 
     .popup table {
@@ -295,7 +311,7 @@ footer a:hover {
 @media only screen and (max-width: 480px) {
     .container {
         padding: 10px;
-        margin: 5%;
+        margin: 10%;
     }
 
     table {
@@ -326,5 +342,18 @@ footer a:hover {
     .popup {
         width: 80%;
         height: 70%;
+        left: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container:first-of-type {
+        margin: auto;
+        margin-top: 15vh;
+        max-width: 450px;
+    }
+
+    #newSection, #clearData {
+        margin-top: 20%;
     }
 }
