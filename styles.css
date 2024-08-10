@@ -40,7 +40,7 @@ body {
     overflow-x: hidden;
     position: relative;
     background: #4c7766;
-    background: linear-gradient(45deg, rgba(76, 119, 102,1) 20%, rgba(235, 230, 224,1) 100%);
+    background: linear-gradient(45deg, rgba(76, 119, 102,1) 20%, rgba(172, 186, 176,1) 100%);
 }
 
 .custom-font { /* For heading */
@@ -81,7 +81,7 @@ input:focus, select:focus {
     z-index: 1;
 }
 
-#newSection, #clearData {
+#Ads, #GradeMakeup {
     z-index: 0;
 }
 
@@ -322,11 +322,15 @@ footer a:hover {
 @media only screen and (max-width: 480px) {
     .container {
         padding: 10px;
-        margin: 10%;
+        margin-top: 20vh;
+        margin-bottom: 20vh;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
     }
 
     table {
         margin: 5px 0;
+        margin-top: 5%;
     }
 
     th, td {
@@ -340,10 +344,12 @@ footer a:hover {
 
     p {
         font-size: 14px;
+        margin-bottom: 6%;
     }
 
     h1 {
         font-size: 20px;
+        margin: 2.5%;
     }
 
     footer {
@@ -364,7 +370,61 @@ footer a:hover {
         max-width: 450px;
     }
 
-    #newSection, #clearData {
+    #Ads, #GradeMakeup {
         margin-top: 20%;
     }
+}
+
+/*Next section Grade makeup*/
+
+#GradeMakeup {
+    text-align: center;
+    margin-top: 160px; /* Adjust space from the element above */
+    padding: 20px;
+    background-color: var(--container-bg-color);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+}
+
+l {
+    text-align: left;
+}
+h3{
+color: #375649;
+font-size:x-large ;
+}
+
+#GradeMakeup img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    #GradeMakeup {
+        margin-top: 10px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #GradeMakeup {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    #GradeMakeup img {
+        max-width: 90%;
+    }
+}
+
+
+
+
+.ads-container {
+    margin: 20px auto;
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
 }
