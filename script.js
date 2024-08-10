@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOMContentLoaded event triggered.');
     loadTableData(); // This should handle adding initial rows if needed
     loadSemesterData();
 
@@ -8,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('addSemesterButton').addEventListener('click', addSemesterRow);
     document.getElementById('calculateCGPA').addEventListener('click', calculateCGPA);
 
-    // Save data whenever the user adds a row or inputs data
     document.querySelector('#gradesTable tbody').addEventListener('input', saveTableData);
     document.getElementById('semesterTable').addEventListener('input', saveSemesterData);
 
@@ -27,21 +27,28 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function addInitialRows() {
-    // Add two empty rows if there are no saved data
-    for (let i = 0; i < 2; i++) {
+    console.log('Adding initial rows...');
+    // Add 3 empty rows if there are no saved data
+    for (let i = 0; i < 3; i++) {
         addRow();
     }
 }
 
 function loadTableData() {
-    const savedData = JSON.parse(localStorage.getItem('gradesTable')) || [];
-    if (savedData.length === 0) {
+    console.log('Loading table data...');
+    const savedData = JSON.parse(localStorage.getItem('gradesTable'));
+
+    if (savedData && savedData.length > 0) {
+        console.log('Found saved data:', savedData);
+        savedData.forEach((rowData) => {
+            addRow(rowData);
+        });
+    } else {
         console.log("No saved data found, adding initial rows...");
         addInitialRows(); // Add two empty rows if no data is loaded
-    } else {
-        savedData.forEach(rowData => addRow(rowData));
     }
 }
+
 
 
 function calculateGPA() {
@@ -78,10 +85,9 @@ function calculateGPA() {
 
 
 function addRow(data = { subject: '', credit: '', grade: '' }) {
+    console.log('Adding row with data:', data);
     const tableBody = document.querySelector('#gradesTable tbody');
     const newRow = tableBody.insertRow();
-    
-    console.log('Adding row with data:', data); // Debugging line
 
     for (let i = 0; i < 3; i++) {
         const cell = newRow.insertCell(i);
@@ -205,16 +211,6 @@ function saveTableData() {
     });
 
     localStorage.setItem('gradesTable', JSON.stringify(tableData));
-}
-
-function loadTableData() {
-    const savedData = JSON.parse(localStorage.getItem('gradesTable'));
-
-    if (savedData) {
-        savedData.forEach((rowData) => {
-            addRow(rowData);
-        });
-    }
 }
 
 function saveSemesterData() {
