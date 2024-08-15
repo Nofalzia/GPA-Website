@@ -85,6 +85,21 @@ input:focus, select:focus {
     z-index: 0;
 }
 
+#calculateButton{
+    background: linear-gradient(45deg, rgba(76, 119, 102,1) 1%, rgba(172, 186, 176,1) 200%);
+}
+
+#clearGPAandCGPA {
+    background-color: transparent;
+    color: var(--popup-close-button-bg-color);
+    border: 1px solid var(--popup-close-button-bg-color);
+}
+
+#clearGPAandCGPA:hover {
+    background: linear-gradient(45deg, rgb(176, 49, 40) 1%, rgb(255, 188, 188) 200%);
+    color: var(--button-text-color);
+}
+
 .container button {
     background-color: transparent;
     color: var(--button-border-color);
@@ -99,7 +114,7 @@ input:focus, select:focus {
 }
 
 .container button:hover {
-    background-color: var(--button-hover-bg-color);
+    background: linear-gradient(45deg, rgba(76, 119, 102,1) 20%, rgba(172, 186, 176,1) 200%);
     color: var(--button-text-color);
 }
 
@@ -130,17 +145,6 @@ button {
     margin: 2px;
 }
 
-#clearGPAandCGPA {
-    background-color: transparent;
-    color: var(--popup-close-button-bg-color);
-    border: 1px solid var(--popup-close-button-bg-color);
-}
-
-#clearGPAandCGPA:hover {
-    background-color: var(--popup-close-button-bg-color);
-    color: var(--button-text-color);
-}
-
 button:hover {
     background-color: var(--button-hover-bg-color);
 }
@@ -152,10 +156,11 @@ font-size: 100%;
 font-weight: 100;
 }
 
-p {
+p, pre{
     margin-top: 20px;
     font-size: 18px;
     color: var(--text-color);
+    font-family: 'Inter', sans-serif;
 }
 
 .popup {
@@ -222,7 +227,7 @@ p {
 }
 
 .popup button.close-button:hover {
-    background-color: var(--popup-close-button-hover-bg-color);
+    background: linear-gradient(45deg, rgb(176, 49, 40) 1%, rgb(255, 188, 188) 200%);
 }
 
 /* Scrollbar styles */
@@ -297,7 +302,7 @@ footer a:hover {
         font-weight: 550;
     }
 
-    p {
+    p, pre {
         font-size: 16px;
     }
 
@@ -349,7 +354,7 @@ footer a:hover {
         font-size: 12px;
     }
 
-    p {
+    p, pre{
         font-size: 14px;
         margin-bottom: 6%;
     }
@@ -406,6 +411,10 @@ font-size:x-large ;
     height: auto;
 }
 
+img {
+    max-width: 50%;
+}
+
 @media only screen and (max-width: 768px) {
     #GradeMakeup {
         margin-top: 10px;
@@ -432,6 +441,5 @@ font-size:x-large ;
     max-width: 100%;
     padding: 10px;
     text-align: center;
-    background-color: #f5f5f5;
     border-radius: 8px;
 }
