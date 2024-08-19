@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPA Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2944551282848377"
     crossorigin="anonymous"></script>
@@ -34,9 +35,9 @@
         <button id="addRowButton">Add Row</button>
         <button id="moreButton" onclick="toggleButtons()">More</button>
         <div id="additionalButtons" style="display: none;">
-            <button id="calculateCGPAButton">Calculate CGPA</button>
-            <button id="showConversionButton" onclick="showConversionTable()">Marks to Grade Table</button>
-            <button id="clearGPAandCGPA">Clear Data</button>
+            <button id="calculateCGPAButton"><i class="fas fa-calculator"></i> Calculate CGPA</button>
+            <button id="showConversionButton" onclick="showConversionTable()"><i class="fas fa-list-ul"></i> Marks to Grade</button>
+            <button id="clearGPAandCGPA"><i class="fas fa-times"></i> Clear Data</button>
         </div>
         <!-- buttons -->
 
@@ -157,5 +158,20 @@
         <br>
         This website contains data sourced from <a href="https://bahria.edu.pk/buic/" target="_blank">Bahria University (BUIC)</a>. The content is provided for informational purposes only and is not endorsed by or affiliated with Bahria University. For official information, please visit the university's official website.
     </footer>
+   
+    <!-- Default Statcounter code for GPA Website http://my-grade.netlify.app -->
+    <script type="text/javascript">
+    var sc_project=13028890; 
+    var sc_invisible=1; 
+    var sc_security="b870d68c"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img class="statcounter"
+    src="https://c.statcounter.com/13028890/0/b870d68c/1/" alt="Web Analytics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
 </body>
 </html>
