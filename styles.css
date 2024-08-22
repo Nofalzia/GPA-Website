@@ -167,7 +167,7 @@ p, pre{
     display: none;
     position: fixed;
     top: 10%;
-    left: 48%;
+    left: 50%;
     transform: translate(-50%, 0);
     background-color: var(--popup-bg-color);
     padding: 20px;

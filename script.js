@@ -117,7 +117,7 @@ function addRow(data = { subject: '', credit: '', grade: '' }) {
 function getGradePoint(grade) {
     switch (grade.toUpperCase()) {
         case 'A':
-            return 4.0;
+            return 4.00;
         case 'A-':
             return 3.67;
         case 'B+':
@@ -135,7 +135,7 @@ function getGradePoint(grade) {
         case 'D+':
             return 1.33;
         case 'D':
-            return 1.0;
+            return 1.00;
         case 'F':
             return 0.00;
         default:
