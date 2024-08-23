@@ -1,18 +1,14 @@
 :root {
-    --background-color: #4c7766;
-    --background-image-color: rgba(0, 0, 0, 0.2);
-    --container-bg-color: #ebe6e0;
-    --button-bg-color: #4c7766;
-    --button-hover-bg-color: #4c7766;
-    --button-text-color: #ebe6e0;
-    --button-border-color: #4c7766;
-    --popup-bg-color: #ebe6e0;
+    --Viridian: #4c7766; 
+    /*A Dark Cyan-Green is called Viridian*/
+    --Pebble-Gray: #ebe6e0; 
+    /*A Light Gray-Orange is called Pebble Gray*/
+    --Mahogany-Red: #b03128ee; 
+    /*A Deep Rich Red is called Mahogany*/
     --popup-border-color: #cccccc;
-    --popup-close-button-bg-color: #b03128ee;
-    --popup-close-button-hover-bg-color: #b03128ee;
     --text-color: #000000;
     --scrollbar-thumb-color: #808080;
-    --scrollbar-track-color: #ebe6e0;
+    --background-image-color: rgba(0, 0, 0, 0.2);
     --footer-text-color: rgb(235, 230, 224);
 }
 
@@ -30,7 +26,7 @@ html, body {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--background-color);
+    background-color: var(--Viridian);
     margin: 0;
     display: block;
     justify-content: center;
@@ -70,7 +66,7 @@ input:focus, select:focus {
     margin-right: auto;
     margin-top: 5%;
     text-align: center;
-    background-color: var(--container-bg-color);
+    background-color: var(--Pebble-Gray);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
@@ -91,19 +87,19 @@ input:focus, select:focus {
 
 #clearGPAandCGPA {
     background-color: transparent;
-    color: var(--popup-close-button-bg-color);
-    border: 1px solid var(--popup-close-button-bg-color);
+    color: var(--Mahogany-Red);
+    border: 1px solid var(--Mahogany-Red);
 }
 
 #clearGPAandCGPA:hover {
     background: linear-gradient(45deg, rgb(176, 49, 40) 1%, rgb(255, 188, 188) 200%);
-    color: var(--button-text-color);
+    color: var(--Pebble-Gray);
 }
 
 .container button {
     background-color: transparent;
-    color: var(--button-border-color);
-    border: 1px solid var(--button-border-color);
+    color: var(--Viridian);
+    border: 1px solid var(--Viridian);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -115,7 +111,7 @@ input:focus, select:focus {
 
 .container button:hover {
     background: linear-gradient(45deg, rgba(76, 119, 102,1) 20%, rgba(172, 186, 176,1) 200%);
-    color: var(--button-text-color);
+    color: var(--Pebble-Gray);
 }
 
 table {
@@ -135,8 +131,8 @@ th, td {
 }
 
 button {
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
+    background-color: var(--Viridian);
+    color: var(--Pebble-Gray);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -146,7 +142,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--button-hover-bg-color);
+    background-color: var(--Viridian);
 }
 
 h6 {
@@ -169,7 +165,7 @@ p, pre{
     top: 10%;
     left: 50%;
     transform: translate(-50%, 0);
-    background-color: var(--popup-bg-color);
+    background-color: var(--Pebble-Gray);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -201,8 +197,8 @@ p, pre{
 }
 
 .popup button {
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
+    background-color: var(--Viridian);
+    color: var(--Pebble-Gray);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -212,12 +208,12 @@ p, pre{
 }
 
 .popup button:hover {
-    background-color: var(--button-hover-bg-color);
+    background-color: var(--Viridian);
 }
 
 .popup button.close-button {
-    background-color: var(--popup-close-button-bg-color); 
-    color: var(--button-text-color);
+    background-color: var(--Mahogany-Red); 
+    color: var(--Pebble-Gray);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -241,12 +237,12 @@ p, pre{
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-track-color);
+    background-color: var(--Pebble-Gray);
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    scrollbar-color: var(--scrollbar-thumb-color) var(--Pebble-Gray);
 }
 
 footer {
@@ -393,7 +389,7 @@ footer a:hover {
     text-align: center;
     margin-top: 160px; /* Adjust space from the element above */
     padding: 20px;
-    background-color: var(--container-bg-color);
+    background-color: var(--Pebble-Gray);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
     border-radius: 8px;
 }
