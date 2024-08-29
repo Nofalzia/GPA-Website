@@ -23,7 +23,6 @@ html, body {
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--Viridian);
@@ -365,8 +364,8 @@ footer a:hover {
     }
 
     .popup {
-        width: 80%;
-        height: 70%;
+        width: 85%;
+        height: 80%;
         left: 50%;
     }
 }
@@ -397,6 +396,7 @@ footer a:hover {
 l {
     text-align: left;
 }
+
 h3{
 color: #375649;
 font-size:x-large ;
@@ -428,9 +428,6 @@ img {
         max-width: 90%;
     }
 }
-
-
-
 
 .ads-container {
     margin: 20px auto;
